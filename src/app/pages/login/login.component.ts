@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit  {
           this.authResponse = response;
           if (!this.authResponse.mfaEnabled) {
             localStorage.setItem('token', response.accessToken as string);
-            this.router.navigate(['welcome']);
+            this.router.navigate(['dashboard']);
           }
         }
       });
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit  {
       .subscribe({
         next: (response) => {
           localStorage.setItem('token', response.accessToken as string);
-          this.router.navigate(['welcome']);
+          this.router.navigate(['dashboard']);
         }
       });
   }

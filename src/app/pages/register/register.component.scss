@@ -3,7 +3,9 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 500px;
+  width: 600px;
+  height: 100%;
+
 }
 
 h2 {
@@ -22,9 +24,13 @@ label {
   margin-bottom: 5px;
   color: #555555;
   text-align: left;
+  font-size: 16px;
+  padding-left: 20px;
 }
 
 input[type="text"],
+input[type="checkbox"],
+input[type="email"],
 input[type="password"] {
   width: 93%;
   padding: 10px;
@@ -44,11 +50,12 @@ input[type="password"] {
 }
 
 button {
-  width: 100%;
+  width: 93%;
   padding: 10px;
+  margin-left:8px;
   background-color: #007bff;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -56,6 +63,9 @@ button {
 
 a {
   margin-top: 10px;
+}
+p{
+  font-size: 16px;
 }
 
 button:hover {
