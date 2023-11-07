@@ -27,10 +27,25 @@ export class LoginComponent implements OnInit  {
       .subscribe({
         next: (response) => {
           this.authResponse = response;
-          if (!this.authResponse.mfaEnabled) {
+
+          //Defined routes.
+          if (!this.authResponse.mfaEnabled && this.authResponse.role == "ADMIN") {
             localStorage.setItem('token', response.accessToken as string);
             this.router.navigate(['dashboard']);
           }
+
+          //Defined routes.
+          if (!this.authResponse.mfaEnabled && this.authResponse.role == "MANAGER") {
+            localStorage.setItem('token', response.accessToken as string);
+            this.router.navigate(['customer']);
+          }
+
+          //Defined routes.
+          if (!this.authResponse.mfaEnabled && this.authResponse.role == "USER") {
+            localStorage.setItem('token', response.accessToken as string);
+            this.router.navigate(['dashboard']);
+          }
+
         }
       });
   }

@@ -68,10 +68,13 @@
             <p>
               <mat-form-field [color]="colorControl.value!">
                 <mat-label>Role utilisateur</mat-label>
-                <mat-select [formControl]="colorControl">
-                  <mat-option value="revendeur">Revendeur</mat-option>
-                  <mat-option value="responsable_client">Responsable clientèle</mat-option>
-                  <mat-option value="operateur_tel">Operateur telephonique</mat-option>
+                <mat-select  [formControl]="colorControl"
+                             name="role"
+                             [(ngModel)]="registerRequest.role"
+                >
+                  <mat-option value="USER">Revendeur</mat-option>
+                  <mat-option value="MANAGER">Responsable clientèle</mat-option>
+                  <mat-option value="ADMIN">Operateur telephonique</mat-option>
                 </mat-select>
               </mat-form-field>
             </p>
@@ -82,8 +85,6 @@
                 [(ngModel)]="registerRequest.mfaEnabled"
               >Activer <span class="text-success"> une double authentification ? (2FA)</span></mat-checkbox>
             </p>
-
-
             <p class="text-center">
               <button mat-fab extended>
                 <mat-icon>save</mat-icon>
@@ -96,7 +97,7 @@
 
       </mat-card-content>
     </mat-card>
-
+<!-- Verification QR CODE-->
     <mat-card *ngIf="authResponse.mfaEnabled">
 
       <div class="success-message-panel" *ngIf="message">
@@ -104,29 +105,64 @@
         <div class="success-message">{{message}}</div>
       </div>
 
-      <h3>Scanner le code QR ci dessous.</h3>
-      <div class="qr-code">
-        <img [src]="authResponse.secretImageUri" alt="QR Code">
+      <mat-card-content>
+        <mat-card-title>Scanner votre code QR avec authenticator.</mat-card-title>
+        <mat-card-subtitle> Il s'agit d'une double verification a six caracteres.</mat-card-subtitle>
+      <div class="col-12">
+        <div class="qr-code">
+          <img [src]="authResponse.secretImageUri" alt="QR Code">
+        </div>
+
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Entrer votre code secret</mat-label>
+            <input matInput placeholder="Write your secret code  here"
+                   id="validationCode"
+                   name="validationCode"
+                   required
+                   class="form-control"
+                   [(ngModel)]="otpCode"
+            >
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+        </p>
       </div>
-      <div class="form-group">
-        <label for="validationCode">Entrer le code à 06 caractères générer par authenticator</label>
-        <input
-          type="text"
-          id="validationCode"
-          name="validationCode"
-          required
-          class="form-control"
-          [(ngModel)]="otpCode"
-        >
-      </div>
-      <button class="btn btn-success"
-        type="button"
-        (click)="verifyTfa()"
-        [class.button-disabled]="otpCode.length < 6"
-      >Verifier le code</button>
+
+
+      </mat-card-content>
+
+
+
+<!--      <div class="form-group">-->
+<!--        <label for="validationCode"></label>-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          id="validationCode"-->
+<!--          name="validationCode"-->
+<!--          required-->
+<!--          class="form-control"-->
+<!--          [(ngModel)]="otpCode"-->
+<!--        >-->
+<!--      </div>-->
+
+
+      <p class="text-center">
+        <button mat-fab extended
+                (click)="verifyTfa()"
+                [class.button-disabled]="otpCode.length < 6"
+          >
+          <mat-icon>save</mat-icon>
+          Verifier le code
+        </button>
+      </p>
+<!--      <button class="btn btn-success"-->
+<!--        type="button"-->
+<!--        (click)="verifyTfa()"-->
+<!--        [class.button-disabled]="otpCode.length < 6"-->
+<!--      >Verifier le code</button>-->
 
     </mat-card>
-
+<!--End Verification-->
 <!--    List of users-->
 
     <mat-card>
@@ -134,46 +170,39 @@
         <mat-card-title>Liste des utilisateurs</mat-card-title>
         <mat-card-subtitle> Tableau recapitulatif des informations utilisateurs et des privilèges associés.</mat-card-subtitle>
       </mat-card-content>
-      <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource">
 
-          <!-- Position Column -->
-          <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-          </ng-container>
 
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-          </ng-container>
-
-          <!-- Weight Column -->
-          <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-          </ng-container>
-
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef> Role </th>
-            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <table   class="mat-elevation-z8" >
+              <!-- Position Column -->
+              <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Noms.</th>
+                    <th>Email.</th>
+                    <th>Role.</th>
+                    <th>2FA.</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let user of users">
+                  <td>i</td>
+                  <td>{{user.firstname}} {{user.lastname}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.role}}</td>
+                  <td>{{user.mfaEnabled}}</td>
+                </tr>
+              </tbody>
+              <!-- Name Column -->
         </table>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                        showFirstLastButtons
                        aria-label="Select page of periodic elements">
         </mat-paginator>
-      </div>
 
     </mat-card>
 <!--    End of Table-->
-    
+
     <mat-card style="color:white;">
       <mat-card-content style="color:white;">
         <mat-card-title>Customizing menu position </mat-card-title>

@@ -10,7 +10,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialRoutes } from './material.routing';
-import { ButtonsComponent } from './buttons/buttons.component';
+import { ButtonsComponent } from './forms/buttons.component';
 
 import { GridComponent } from './grid/grid.component';
 import { ListsComponent } from './lists/lists.component';

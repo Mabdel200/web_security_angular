@@ -34,4 +34,9 @@ export class AuthenticationService {
     return this.http.post<AuthenticationResponse>
     (`${this.baseUrl}/verify`, verificationRequest);
   }
+
+//  List of users
+  getUsers(){
+    return this.http.get<RegisterRequest>(`${this.baseUrl}/showUsers`)
+  }
 }
