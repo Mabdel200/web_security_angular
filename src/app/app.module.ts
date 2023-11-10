@@ -33,6 +33,7 @@ import { AddProductComponent } from './pages/responsable/add-product/add-product
 import { ProductComponent } from './pages/responsable/product/product.component';
 import { ProductDetailsComponent } from './pages/responsable/product-details/product-details.component';
 import { OrderComponent } from './pages/responsable/order/order.component';
+import { ProfileComponent } from './pages/responsable/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { OrderComponent } from './pages/responsable/order/order.component';
     ProductComponent,
     ProductDetailsComponent,
     OrderComponent,
+    ProfileComponent,
 
   ],
   imports: [

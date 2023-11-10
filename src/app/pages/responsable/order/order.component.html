@@ -27,10 +27,11 @@
                   <thead>
                       <tr>
                           <th>NumCommande</th>
-                          <th>Image</th>
+                          <th>Image Produit</th>
                           <th>Nom produit</th>
                           <th>Prix</th>
                           <th>Quantité</th>
+                          <th>Date commande</th>
                           <!-- <th>Discount</th> -->
                           <th>Status</th>
                           <th>Action</th>
@@ -43,6 +44,7 @@
                               <td>Chaise</td>
                               <td>12000</td>
                               <td>10</td>
+                              <td>11/11/2023</td>
 
                               <!--Cas ou il ya pas rabais (NULL), afficher no discount, dans le cas contraire  calculer le rabais-->
                               <!-- <td>
@@ -54,16 +56,16 @@
                                   <!--Status a 1 produit disponible et dans le cas contraire non disponible-->
                                   <td>
 
-                                      <span class="badge rounded-pill bg-success">Active</span>
+                                      <span class="badge rounded-pill bg-success">Livré</span>
 
                               </td>
 
                               <td>
-                                  <a href="" class="btn btn-info" title="Edit Data"><i class="fa-solid fa-pencil"></i></a>
+                                  <a href="" class="btn btn-info m-1" title="Edit Data"><i class="fa-solid fa-thumbs-up"></i></a>
 
-                                  <a id="delete" href="" class="btn btn-danger" title="Delete Data"><i class="fa-solid fa-trash"></i></a>
+                                 <!--  <a id="delete" href="" class="btn btn-danger" title="Delete Data"><i class="fa-solid fa-trash"></i></a>
 
-                                  <a href="" class="btn btn-warning" title="Details Page"><i class="fa-solid fa-eye"></i></a>
+                                  <a href="" class="btn btn-warning" title="Details Page"><i class="fa-solid fa-eye"></i></a> -->
                                   <!--Afficher icone en fonction du status pour activer ou desactiver le produit-->
 
                                       <a href="" class="btn btn-primary" title="Inactive"><i class="fa-solid fa-thumbs-down"></i></a>
@@ -80,14 +82,15 @@
                   </tbody>
                   <tfoot>
                       <tr>
-                        <th>SI</th>
-                        <th>Image</th>
-                        <th>Nom produit</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
-                        <!-- <th>Discount</th> -->
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>NumCommande</th>
+                          <th>Image Produit</th>
+                          <th>Nom produit</th>
+                          <th>Prix</th>
+                          <th>Quantité</th>
+                          <th>Date commande</th>
+                          <!-- <th>Discount</th> -->
+                          <th>Status</th>
+                          <th>Action</th>
                       </tr>
                   </tfoot>
               </table>

@@ -14,6 +14,7 @@ import { AddProductComponent } from './pages/responsable/add-product/add-product
 import { ProductComponent } from './pages/responsable/product/product.component';
 import { ProductDetailsComponent } from './pages/responsable/product-details/product-details.component';
 import { OrderComponent } from './pages/responsable/order/order.component';
+import { ProfileComponent } from './pages/responsable/profile/profile.component';
 
 export const AppRoutes: Routes = [
   {
@@ -89,6 +90,10 @@ export const AppRoutes: Routes = [
       {
         path: "order",
         component: OrderComponent
+      },
+      {
+        path: "profile",
+        component: ProfileComponent
       },
     ]
   }
