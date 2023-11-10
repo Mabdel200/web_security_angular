@@ -7,8 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.png"/>
+  <link href="assets/styles1/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/797a221095.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+  </script>
+  <script src="assets/styles1/plugins/jquery-knob/excanvas.js"></script>
+  <script src="assets/styles1/plugins/jquery-knob/jquery.knob.js"></script>
+  <script>
+    tinymce.init({
+      selector: '#mytextarea'
+    });
+  </script>
+  <script>
+    $(function() {
+      $(".knob").knob();
+    });
+  </script>
+
+  <!--Datatable-->
+    <script src="assets/styles1/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#example').DataTable();
+        } );
+    </script>
+  <!--Datatable-->
+
 </body>
 </html>
