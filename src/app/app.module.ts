@@ -25,6 +25,14 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { CustomerComponent } from './pages/customer/customer.component';
 import { HeaderCustomerComponent } from './pages/customer/header-customer/header-customer.component';
 import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/sidebar-customer.component';
+import { ResponsableComponent } from './pages/responsable/responsable.component';
+import { FullResponsableComponent } from './pages/responsable/full-responsable.component';
+import { HeaderResponsableComponent } from './pages/responsable/header-responsable/header-responsable.component';
+import { SidebarResponsableComponent } from './pages/responsable/sidebar-responsable/sidebar-responsable.component';
+import { AddProductComponent } from './pages/responsable/add-product/add-product.component';
+import { ProductComponent } from './pages/responsable/product/product.component';
+import { ProductDetailsComponent } from './pages/responsable/product-details/product-details.component';
+import { OrderComponent } from './pages/responsable/order/order.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +46,17 @@ import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/side
     RegisterComponent,
     WelcomeComponent,
     CustomerComponent,
+    ResponsableComponent,
+    FullResponsableComponent,
     HeaderCustomerComponent,
+    SidebarResponsableComponent,
+    HeaderResponsableComponent,
+    SidebarResponsableComponent,
     SidebarCustomerComponent,
+    AddProductComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+    OrderComponent,
 
   ],
   imports: [

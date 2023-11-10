@@ -8,6 +8,13 @@ import {authGuard} from "./serives/auth/auth.guard";
 import {FullCustomerComponent} from "./pages/customer/full-customer.component";
 import {CustomerComponent} from "./pages/customer/customer.component";
 
+import { ResponsableComponent } from './pages/responsable/responsable.component';
+import { FullResponsableComponent } from './pages/responsable/full-responsable.component';
+import { AddProductComponent } from './pages/responsable/add-product/add-product.component';
+import { ProductComponent } from './pages/responsable/product/product.component';
+import { ProductDetailsComponent } from './pages/responsable/product-details/product-details.component';
+import { OrderComponent } from './pages/responsable/order/order.component';
+
 export const AppRoutes: Routes = [
   {
     path: 'login',
@@ -26,7 +33,7 @@ export const AppRoutes: Routes = [
   {
     path: '',
     component: FullComponent,
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     children: [
       {
         path: '',
@@ -54,6 +61,35 @@ export const AppRoutes: Routes = [
         path: 'customer',
         component: CustomerComponent,
       }
+    ]
+  },
+
+  // Route for Responsable clientele
+  {
+    path: "",
+    component: FullResponsableComponent,
+    children: [
+
+      {
+        path: 'responsable-cli',
+        component: ResponsableComponent,
+      },
+      {
+        path: "product",
+        component: ProductComponent
+      },
+      {
+        path: "product-details",
+        component: ProductDetailsComponent
+      },
+      {
+        path: "add-product",
+        component: AddProductComponent
+      },
+      {
+        path: "order",
+        component: OrderComponent
+      },
     ]
   }
 ];
