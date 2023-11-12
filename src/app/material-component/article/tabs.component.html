@@ -1,9 +1,9 @@
 <div class="row">
   <p class="text-center col-4">
-    <a  href="/add-stock-form">
+    <a  href="/add-article-form">
       <button mat-fab extended color="accent" >
         <mat-icon>plus_one</mat-icon>
-        Ajouter une methode de valorisation
+        Ajouter un produit
       </button>
     </a>
   </p>
@@ -19,8 +19,8 @@
 
     <mat-card>
       <mat-card-content>
-        <mat-card-title>Visu du stock 2023</mat-card-title>
-        <mat-card-subtitle> Tableau récapitulatif des produit en stock.</mat-card-subtitle>
+        <mat-card-title>Liste des articles</mat-card-title>
+        <mat-card-subtitle> Tableau récapitulatif des articles en stock.</mat-card-subtitle>
       </mat-card-content>
 
 
@@ -28,20 +28,36 @@
         <!-- Position Column -->
         <thead>
         <tr>
-          <th>No.</th>
-          <th>formule.</th>
-          <th>categorie.</th>
-          <th>marque.</th>
+          <th>#</th>
+          <th>Nom.</th>
+          <th>Prix.</th>
+          <th>Couleur.</th>
+          <th>Créèr le.</th>
+          <th>Description.</th>
+          <th>Marque.</th>
+          <th>Categorie.</th>
           <th>Qte en stock.</th>
+
+          <th>Actions.</th>
         </tr>
         </thead>
         <tbody>
-        <tr  *ngFor="let order of orders">
-          <td>i</td>
-          <td>{{order.createAt}} </td>
-          <td>{{order.deliveryAddress}}</td>
-          <td>{{order.produit}}</td>
-          <td>{{order.user}}</td>
+        <tr  *ngFor="let prod of products">
+          <td><i class="text-info fas fa-cart-plus fa-2x"></i></td>
+          <td>{{prod.name}} </td>
+          <td class="text-danger">{{prod.prix}} </td>
+          <td>{{prod.color}} </td>
+          <td>{{prod.createAt}} </td>
+          <td>{{prod.description}} </td>
+          <td>{{prod.marque}}</td>
+          <td>{{prod.categorie}}</td>
+          <td class="text-success">{{prod.quantiteStock}} </td>
+
+          <td>
+            <button class="btn btn-primary">
+              modifier
+           </button>
+          </td>
         </tr>
         </tbody>
         <!-- Name Column -->

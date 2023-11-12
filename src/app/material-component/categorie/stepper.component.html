@@ -1,0 +1,125 @@
+<div class="row">
+  <p class="text-center col-4">
+    <a  href="/add-categorie-form">
+      <button mat-fab extended color="accent" >
+        <mat-icon>plus_one</mat-icon>
+        Ajouter une nouvelle catégorie
+      </button>
+    </a>
+  </p>
+  <p class="text-center col-4">
+    <a  href="/add-marque-form">
+      <button mat-fab extended color="accent" >
+        <mat-icon>plus_one</mat-icon>
+        Ajouter une marque
+      </button>
+    </a>
+  </p>
+</div>
+
+
+<div class="row">
+  <!-- Card column -->
+  <div class="col-12">
+    <!--    Form to add new user-->
+    <!--End Verification-->
+    <!--    List of users-->
+
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Liste des catégories</mat-card-title>
+        <mat-card-subtitle> Tableau récapitulatif des articles en stock.</mat-card-subtitle>
+      </mat-card-content>
+
+
+      <table class="mat-elevation-z8 table  table-striped" >
+        <!-- Position Column -->
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Name.</th>
+          <th>Description.</th>
+          <th>Date</th>
+          <th>Statut.</th>
+          <th>Actions.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let category of categories; let i =index">
+          <td>{{i}}</td>
+          <td>{{category.name}} </td>
+          <td>{{category.description}}</td>
+          <td>{{category.createAt}}</td>
+          <td class="text-success"><b>Actif</b></td>
+          <td>
+            <a href="">
+              <button class="btn btn-primary">Modifier</button>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+        <!-- Name Column -->
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+
+    </mat-card>
+    <!--    End of Table-->
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Liste des marques</mat-card-title>
+        <mat-card-subtitle> Tableau récapitulatif des marques en stock.</mat-card-subtitle>
+      </mat-card-content>
+
+
+      <table class="mat-elevation-z8 table  table-striped" >
+        <!-- Position Column -->
+        <thead>
+        <tr>
+          <th>No.</th>
+          <th>Name.</th>
+          <th>Statut.</th>
+          <th>Actions.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let marque of marques; let i =index">
+          <td>{{i}}</td>
+          <td>{{marque.name}} </td>
+          <td class="text-success"><b>Actif</b></td>
+          <td>
+            <a href="">
+              <button class="btn btn-primary">Modifier</button>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+        <!-- Name Column -->
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+
+    </mat-card>
+
+
+    <mat-card style="color:white;">
+      <mat-card-content style="color:white;">
+        <mat-card-title>Customizing menu position </mat-card-title>
+        <mat-card-subtitle style="color:white;">By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+        </mat-card-subtitle>
+        <mat-menu style="color:white;" #appMenu="matMenu" yPosition="above">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

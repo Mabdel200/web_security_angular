@@ -1,0 +1,163 @@
+
+  <div class="row">
+    <!-- Card column -->
+    <div class="col-8">
+      <!--    Form to add new user-->
+      <mat-card *ngIf="!authResponse.mfaEnabled">
+        <div class="success-message-panel" *ngIf="message">
+          <div class="success-icon">&#10004;</div>
+          <div class="success-message">{{message}}</div>
+        </div>
+
+        <mat-card-content>
+          <mat-card-title class="text-center">Ajouter un compte utilisateur</mat-card-title>
+          <mat-card-subtitle class="text-center"> Formulaire d'ajout des comptes utilisateurs par role selon le facteur d'authentification.</mat-card-subtitle>
+
+          <div class="col-12" >
+            <form (ngSubmit)="registerUser()">
+       <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Write first name"
+               id="firstname"
+               name="firstname"
+               required
+               [(ngModel)]="registerRequest.firstname"
+        >
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Prénom</mat-label>
+        <input matInput placeholder="Write last name"
+               id="lastname"
+               name="lastname"
+               required
+               [(ngModel)]="registerRequest.lastname"
+        >
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Adresse mail</mat-label>
+        <input matInput placeholder="abdel@example.com" [formControl]="email" required
+               id="email"
+               name="email"
+               [(ngModel)]="registerRequest.email"
+        >
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" value="1234"
+               id="password"
+               name="password"
+               required
+               [(ngModel)]="registerRequest.password"
+        >
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field [color]="colorControl.value!">
+        <mat-label>Role utilisateur</mat-label>
+        <mat-select  [formControl]="colorControl"
+                     name="role"
+                     [(ngModel)]="registerRequest.role"
+        >
+          <mat-option value="USER">Revendeur</mat-option>
+          <mat-option value="MANAGER">Responsable clientèle</mat-option>
+          <!--                  <mat-option value="ADMIN">Operateur telephonique</mat-option>-->
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox
+        id="rememberMe"
+        name="rememberMe"
+        [(ngModel)]="registerRequest.mfaEnabled"
+      >Activer <span class="text-success"> une double authentification ? (2FA)</span></mat-checkbox>
+    </p>
+    <p class="text-center">
+      <button mat-fab extended>
+        <mat-icon>save</mat-icon>
+        Ajouter
+      </button>
+    </p>
+    </form>
+    </div>
+
+</mat-card-content>
+</mat-card>
+<!-- Verification QR CODE-->
+<mat-card *ngIf="authResponse.mfaEnabled">
+
+  <div class="success-message-panel" *ngIf="message">
+    <div class="success-icon">&#10004;</div>
+    <div class="success-message">{{message}}</div>
+  </div>
+
+  <mat-card-content>
+    <mat-card-title>Scanner votre code QR avec authenticator.</mat-card-title>
+    <mat-card-subtitle> Il s'agit d'une double verification a six caracteres.</mat-card-subtitle>
+    <div class="col-12">
+      <div class="qr-code">
+        <img [src]="authResponse.secretImageUri" alt="QR Code">
+      </div>
+
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Entrer votre code secret</mat-label>
+          <input matInput placeholder="Write your secret code  here"
+                 id="validationCode"
+                 name="validationCode"
+                 required
+                 class="form-control"
+                 [(ngModel)]="otpCode"
+          >
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+    </div>
+
+
+  </mat-card-content>
+
+  <p class="text-center">
+    <button mat-fab extended
+            (click)="verifyTfa()"
+            [class.button-disabled]="otpCode.length < 6"
+    >
+      <mat-icon>save</mat-icon>
+      Verifier le code
+    </button>
+  </p>
+
+</mat-card>
+<!--End Verification-->
+
+<mat-card style="color:white;">
+  <mat-card-content style="color:white;">
+    <mat-card-title>Customizing menu position </mat-card-title>
+    <mat-card-subtitle style="color:white;">By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+    </mat-card-subtitle>
+    <mat-menu style="color:white;" #appMenu="matMenu" yPosition="above">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Help</button>
+    </mat-menu>
+  </mat-card-content>
+</mat-card>
+
+</div>
+    <div class="col-4">
+      <img src="assets/images/prod/security.png" alt="user" class="img-fluid"  style="margin-top: 10rem !important;">
+    </div>
+</div>
+
+

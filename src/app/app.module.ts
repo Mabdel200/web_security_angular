@@ -1,16 +1,18 @@
 
 import { BrowserModule } from '@angular/platform-browser';
+// import {CommonModule} from "@angular/common";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import {CommonModule, LocationStrategy, NgFor, NgIf, PathLocationStrategy} from '@angular/common';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
+
+
 import { FullComponent } from './layouts/full/full.component';
 import { FullCustomerComponent} from "./pages/customer/full-customer.component";
-
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +27,10 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { CustomerComponent } from './pages/customer/customer.component';
 import { HeaderCustomerComponent } from './pages/customer/header-customer/header-customer.component';
 import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/sidebar-customer.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from "@angular/material/button";
+
 
 @NgModule({
   declarations: [
@@ -33,6 +39,8 @@ import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/side
     FullCustomerComponent,
     AppHeaderComponent,
     SpinnerComponent,
+
+
     // Fr Authenticator.
     LoginComponent,
     RegisterComponent,
@@ -44,9 +52,10 @@ import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/side
   ],
   imports: [
     BrowserModule,
+    // CommonModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
-    FormsModule,
+    FormsModule, ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
     RouterModule.forRoot(AppRoutes),

@@ -1,0 +1,139 @@
+<div class="row">
+  <!-- Card column -->
+  <div class="col-8">
+    <!--    Form to add new user-->
+    <mat-card >
+      <div class="success-message-panel" *ngIf="message">
+        <div class="success-icon">&#10004;</div>
+        <div class="success-message">{{message}}</div>
+      </div>
+
+      <mat-card-content>
+        <mat-card-title class="text-center">Ajouter un produit</mat-card-title>
+        <mat-card-subtitle class="text-center"> Formulaire d'ajout d'un nouveau produit dans le stock.</mat-card-subtitle>
+
+        <div class="col-12" >
+          <form (ngSubmit)="registerArticle()">
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Nom produit</mat-label>
+                <input matInput placeholder="Write name of product"
+                       id="name"
+                       name="name"
+                       required
+                       [(ngModel)]="articleRequest.name"
+                >
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Give short description"
+                       id="description"
+                       name="description"
+                       required
+                       [(ngModel)]="articleRequest.description"
+                >
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Prix</mat-label>
+                <input matInput placeholder="Price ?"
+                       id="prix"
+                       name="prix"
+                       required
+                       [(ngModel)]="articleRequest.prix"
+                >
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+            </p>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Quantité en stock</mat-label>
+              <input matInput placeholder="Number"
+                     id="quantiteStock"
+                     name="quantiteStock"
+                     required
+                     [(ngModel)]="articleRequest.quantiteStock"
+              >
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Couleur ?</mat-label>
+              <mat-select  [formControl]="colorControl"
+                           name="color"
+                           [(ngModel)]="articleRequest.color"
+              >
+                <mat-option  value="noir">Noire</mat-option>
+                <mat-option  value="blanc">Blanche</mat-option>
+                <mat-option  value="bleu">Bleue </mat-option>
+                <mat-option  value="vert">Verte </mat-option>
+                <mat-option  value="autre">Autre </mat-option>
+
+
+              </mat-select>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Marque ?</mat-label>
+              <mat-select  [formControl]="colorControl"
+                           name="marque"
+                           [(ngModel)]="articleRequest.marque"
+              >
+                <mat-option *ngFor="let marque of marques" [value]="marque.name">{{marque.name}} </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Categorie ?</mat-label>
+              <mat-select  [formControl]="colorControl"
+                           name="categorie"
+                           [(ngModel)]="articleRequest.categorie"
+              >
+                <mat-option *ngFor="let categorie of categories" [value]="categorie.name">{{categorie.name}} </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+
+
+            <p class="text-center">
+              <button mat-fab extended>
+                <mat-icon>save</mat-icon>
+                Enregistrer
+              </button>
+            </p>
+          </form>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+
+    <mat-card style="color:white;">
+      <mat-card-content style="color:white;">
+        <mat-card-title>Customizing menu position </mat-card-title>
+        <mat-card-subtitle style="color:white;">By default, the menu will display below (y-axis), after (x-axis), without overlapping its trigger. The position can be changed using the xPosition (before | after) and yPosition (above | below) attributes. The menu can be forced to overlap the trigger using the overlapTrigger attribute.
+        </mat-card-subtitle>
+        <mat-menu style="color:white;" #appMenu="matMenu" yPosition="above">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+  <div class="col-4">
+    <img src="assets/images/prod/order.png" alt="order" class="img-fluid"  style="margin-top: 10rem !important;">
+  </div>
+</div>
+
+
+
+

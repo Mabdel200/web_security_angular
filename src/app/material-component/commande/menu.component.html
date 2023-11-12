@@ -1,9 +1,9 @@
 <div class="row">
   <p class="text-center col-4">
-    <a  href="/add-stock-form">
+    <a  href="/add-order-form">
       <button mat-fab extended color="accent" >
         <mat-icon>plus_one</mat-icon>
-        Ajouter une methode de valorisation
+        Ajouter une commande
       </button>
     </a>
   </p>
@@ -19,8 +19,8 @@
 
     <mat-card>
       <mat-card-content>
-        <mat-card-title>Visu du stock 2023</mat-card-title>
-        <mat-card-subtitle> Tableau récapitulatif des produit en stock.</mat-card-subtitle>
+        <mat-card-title>Liste des commandes</mat-card-title>
+        <mat-card-subtitle> Tableau récapitulatif des commandes passer par un client.</mat-card-subtitle>
       </mat-card-content>
 
 
@@ -29,19 +29,30 @@
         <thead>
         <tr>
           <th>No.</th>
-          <th>formule.</th>
-          <th>categorie.</th>
-          <th>marque.</th>
-          <th>Qte en stock.</th>
+          <th>Client.</th>
+          <th>Produit.</th>
+          <th>Date cmd.</th>
+          <th>Adresse.</th>
+          <th>Actions</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr  *ngFor="let order of orders">
-          <td>i</td>
+        <tr  *ngFor="let order of orders; let i = index">
+          <td>{{i}}</td>
+          <td>{{order.user}} </td>
+          <td>{{order.product}} </td>
           <td>{{order.createAt}} </td>
           <td>{{order.deliveryAddress}}</td>
-          <td>{{order.produit}}</td>
-          <td>{{order.user}}</td>
+          <td>
+            <button class="btn btn-success">
+                valider
+            </button>
+            <button class="btn btn-danger">
+              bloquer
+            </button>
+
+          </td>
         </tr>
         </tbody>
         <!-- Name Column -->
