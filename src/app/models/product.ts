@@ -2,11 +2,11 @@ export interface ProductRequest {
     name?: string;
     description?: string;
     prix?: string;
-    couleur?: string;
+    // couleur?: string;
     marque?: string;
     categorie?: string;
     quantiteStock?: number;
-    // imageUrl?: string[];
+    imageUrl?: string[];
     code?: string;
     status?: boolean;
 }

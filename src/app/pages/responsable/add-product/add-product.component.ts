@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';import { Router } from '@angular/router';
 import { ProductRequest } from 'src/app/models/product';
+import { BrandService } from 'src/app/serives/brand/brand.service';
+import { CategoryService } from 'src/app/serives/category/category.service';
 import { ProductService } from 'src/app/serives/produit/product.service';
 
 @Component({
@@ -8,19 +10,8 @@ import { ProductService } from 'src/app/serives/produit/product.service';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit{
-    /* public name: any;
-    public description: any;
-    public prix: any;
-    public couleur: any;
-    public marque: any;
-    public categorie: any;
-    public quantiteStock: any;
-    // imageUrl: any[];
-    public code: any;
-    public status: any; */
-    public product: any;
-    public category: any;
-    public marque: any;
+    public categories: any;
+    public marques: any;
 
     productRequest: ProductRequest = {};
     message = "";
@@ -28,11 +19,13 @@ export class AddProductComponent implements OnInit{
 
   constructor(
     private produitService: ProductService,
+    private categoryService: CategoryService,
+    private brandService: BrandService,
     // Category
     // Marque
     private router: Router){}
 
-    addProduct()
+    createProduct()
     {
       this.message = "";
       this.produitService.addProduct(this.productRequest)
@@ -48,17 +41,16 @@ export class AddProductComponent implements OnInit{
   ngOnInit(): void {
 
     //Get category
-    this.produitService.getAllProducts().subscribe((datas) => {
+    this.categoryService.getAllCategories().subscribe((datas) => {
       console.log(datas);
-      this.product = datas;
+      this.categories = datas;
     });
 
     //Get brand
-    this.produitService.getAllProducts().subscribe((datas) => {
+    this.brandService.getBrands().subscribe((datas) => {
       console.log(datas);
-      this.product = datas;
+      this.marques = datas;
     });
-
 
   }
 

@@ -24,6 +24,10 @@ export class ProductService {
   getProduct(id: number){
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+
+  updateProduct(product: ProductRequest, id: number){
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
 }
 
 

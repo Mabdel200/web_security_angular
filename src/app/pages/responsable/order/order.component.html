@@ -32,19 +32,21 @@
                           <th>Prix</th>
                           <th>Quantité</th>
                           <th>Date commande</th>
+                          <th>Adresse</th>
                           <!-- <th>Discount</th> -->
                           <th>Status</th>
                           <th>Action</th>
                       </tr>
                   </thead>
                   <tbody>
-                          <tr>
-                              <td>1</td> <!--Ajoute 0 + 1-->
+                          <tr *ngFor="let order of orders">
+                              <td>{{ order.id }}</td> <!--Ajoute 0 + 1-->
                               <td><img src="assets/styles1/images/products/01.png" style="width: 70px; height: 40px;"></td>
-                              <td>Chaise</td>
-                              <td>12000</td>
-                              <td>10</td>
-                              <td>11/11/2023</td>
+                              <td>{{ order.product.name }}</td>
+                              <td>{{ order.product.prix }}</td>
+                              <td>{{ order.product.quantiteStock }}</td>
+                              <td>{{ order.product.deliveryDate }}</td>
+                              <td>{{ order.product.deliveryAddress }}</td>
 
                               <!--Cas ou il ya pas rabais (NULL), afficher no discount, dans le cas contraire  calculer le rabais-->
                               <!-- <td>
@@ -88,6 +90,7 @@
                           <th>Prix</th>
                           <th>Quantité</th>
                           <th>Date commande</th>
+                          <th>Adresse</th>
                           <!-- <th>Discount</th> -->
                           <th>Status</th>
                           <th>Action</th>

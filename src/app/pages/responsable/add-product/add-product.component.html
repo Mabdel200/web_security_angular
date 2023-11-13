@@ -20,9 +20,9 @@
         <h5 class="card-title">Add New Product</h5>
         <hr/>
 
-        <form id="myForm" method="post" action="" enctype="multipart/form-data">
+        <form (ngSubmit)="createProduct()" id="myForm" method="post" action="" enctype="multipart/form-data">
 
-
+          <div>{{ message }}</div>
          <div class="form-body mt-4">
           <div class="row">
              <div class="col-lg-8">
@@ -30,7 +30,9 @@
 
                   <div class="form-group mb-3">
                     <label for="inputProductTitle" class="form-label">Nom produit</label>
-                    <input type="text" name="product_name" class="form-control" id="inputProductTitle" placeholder="Enter product title">
+                    <input type="text" name="product_name" class="form-control" id="inputProductTitle" placeholder="Enter product title"
+                    [(ngModel)]="productRequest.name"
+                    >
                   </div>
 
                  <!--  <div class="mb-3">
@@ -43,15 +45,17 @@
                     <input type="text" name="product_size" class="form-control visually-hidden" data-role="tagsinput" value="Small,Medium,Large">
                   </div> -->
 
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                     <label for="inputProductTitle" class="form-label">Couleur produit</label>
                     <input type="text" name="product_color" class="form-control visually-hidden" data-role="tagsinput" value="Red,Blue,Black">
-                  </div>
+                  </div> -->
 
 
                   <div class="form-group mb-3">
                     <label for="inputProductDescription" class="form-label"> Description produit</label>
-                    <textarea name="short_descp" class="form-control" id="inputProductDescription" rows="3"></textarea>
+                    <textarea name="short_descp" class="form-control" id="inputProductDescription" rows="3"
+                    [(ngModel)]="productRequest.description"
+                    ></textarea>
                   </div>
 
                   <!-- <div class="mb-3">
@@ -68,7 +72,9 @@
 
                   <div class="form-group mb-3">
                     <label for="inputProductTitle" class="form-label">Image produit</label>
-                    <input class="form-control" name="multi_img[]" type="file" id="multiImg" multiple="">
+                    <input class="form-control" name="multi_img[]" type="file" id="multiImg" multiple=""
+                    [(ngModel)]="productRequest.imageUrl"
+                    >
 
                     <div class="row" id="preview_img">
 
@@ -84,7 +90,9 @@
 
                     <div class="form-group col-md-6">
                       <label for="inputPrice" class="form-label">Prix produit</label>
-                      <input type="text" name="selling_price" class="form-control" id="inputPrice" placeholder="00.00">
+                      <input type="text" name="selling_price" class="form-control" id="inputPrice" placeholder="00.00"
+                      [(ngModel)]="productRequest.prix"
+                      >
                     </div>
 <!--
                     <div class="col-md-6">
@@ -99,17 +107,21 @@
 
                     <div class="form-group col-md-6">
                       <label for="inputStarPoints" class="form-label">Quantite Produit</label>
-                      <input type="text" name="product_qty" class="form-control" id="inputStarPoints" placeholder="00.00">
+                      <input type="text" name="product_qty" class="form-control" id="inputStarPoints" placeholder="00.00"
+                      [(ngModel)]="productRequest.quantiteStock"
+                      >
                     </div>
 
                     <div class="form-group col-12">
                       <label for="inputProductType" class="form-label">Marque produit</label>
-                      <select name="brand_id" class="form-select" id="inputProductType">
-                          <option></option>
+                      <select name="brand_id" class="form-select" id="inputProductType"
+                      [(ngModel)]="productRequest.marque"
+                      >
+                          <option *ngFor="let marque of marques" [value]="marque.name">{{ marque.name }}</option>
 
-
+<!--
                               <option value="1">Samsung</option>
-                              <option value="1">Iphone</option>
+                              <option value="1">Iphone</option> -->
 
 
                       </select>
@@ -117,12 +129,14 @@
 
                     <div class="form-group col-12">
                       <label for="inputVendor" class="form-label"> Categorie Produit</label>
-                      <select name="category_id" class="form-select" id="inputVendor">
-                          <option></option>
+                      <select name="category_id" class="form-select" id="inputVendor"
+                      [(ngModel)]="productRequest.categorie"
+                      >
+                      <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
 
 
-                              <option value="Telephone">Telephone</option>
-                              <option value="Modem">Modem</option>
+                              <!-- <option value="Telephone">Telephone</option>
+                              <option value="Modem">Modem</option> -->
 
 
                         </select>

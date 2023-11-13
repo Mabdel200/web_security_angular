@@ -1,8 +1,10 @@
-import { Product } from "./product";
+import { ProductRequest } from "./product";
 
 export interface Order {
 
-  product: Product//product: any
+  product: ProductRequest;//product: any
+  deliveryDate?: any;
+  deliveryAddress?: any;
   status?: boolean;
 
 }

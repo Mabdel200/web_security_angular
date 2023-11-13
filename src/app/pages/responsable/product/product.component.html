@@ -28,7 +28,10 @@
                       <tr>
                           <th>SI</th>
                           <th>Image</th>
+                          <th>Code produit</th>
                           <th>Nom produit</th>
+                          <th>Categorie</th>
+                          <th>Marque</th>
                           <th>Prix</th>
                           <th>Quantité</th>
                           <!-- <th>Discount</th> -->
@@ -37,12 +40,15 @@
                       </tr>
                   </thead>
                   <tbody>
-                          <tr>
+                          <tr *ngFor="let product of products">
                               <td>1</td> <!--Ajoute 0 + 1-->
                               <td><img src="assets/styles1/images/products/01.png" style="width: 70px; height: 40px;"></td>
-                              <td>Chaise</td>
-                              <td>12000</td>
-                              <td>10</td>
+                              <td>{{ product.code }}</td>
+                              <td>{{ product.name }}</td>
+                              <td>{{ product.category }}</td>
+                              <td>{{ product.marque }}</td>
+                              <td>{{ product.prix }}</td>
+                              <td>{{ product.quantiteStock }}</td>
 
                               <!--Cas ou il ya pas rabais (NULL), afficher no discount, dans le cas contraire  calculer le rabais-->
                               <!-- <td>
@@ -82,7 +88,10 @@
                       <tr>
                         <th>SI</th>
                         <th>Image</th>
+                        <th>Code produit</th>
                         <th>Nom produit</th>
+                        <th>Categorie</th>
+                        <th>Marque</th>
                         <th>Prix</th>
                         <th>Quantité</th>
                         <!-- <th>Discount</th> -->
