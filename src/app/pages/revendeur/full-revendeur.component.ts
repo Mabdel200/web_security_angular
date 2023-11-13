@@ -5,11 +5,11 @@ import { MenuItems } from '../../shared/menu-items/menu-items';
 
 /** @title Responsive sidenav */
 @Component({
-  selector: 'app-full-layout-responsable',
-  templateUrl: 'full-responsable.component.html',
+  selector: 'app-full-layout-revendeur',
+  templateUrl: 'full-revendeur.component.html',
   styleUrls: []
 })
-export class FullResponsableComponent implements OnDestroy, AfterViewInit {
+export class FullRevendeurComponent implements OnDestroy, AfterViewInit {
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;

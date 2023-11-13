@@ -34,6 +34,15 @@ import { ProductComponent } from './pages/responsable/product/product.component'
 import { ProductDetailsComponent } from './pages/responsable/product-details/product-details.component';
 import { OrderComponent } from './pages/responsable/order/order.component';
 import { ProfileComponent } from './pages/responsable/profile/profile.component';
+import { HeaderRevendeurComponent } from './pages/revendeur/header-revendeur/header-revendeur.component';
+import { SidebarRevendeurComponent } from './pages/revendeur/sidebar-revendeur/sidebar-revendeur.component';
+import { RevendeurComponent } from './pages/revendeur/revendeur.component';
+
+import { ProductComponent as RevendeurProduct } from './pages/revendeur/product/product.component';
+import { ProductDetailsComponent as RevendeurProductDetails } from './pages/revendeur/product-details/product-details.component';
+import { FullRevendeurComponent } from './pages/revendeur/full-revendeur.component';
+
+
 
 @NgModule({
   declarations: [
@@ -59,6 +68,12 @@ import { ProfileComponent } from './pages/responsable/profile/profile.component'
     ProductDetailsComponent,
     OrderComponent,
     ProfileComponent,
+    HeaderRevendeurComponent,
+    SidebarRevendeurComponent,
+    RevendeurComponent,
+    RevendeurProduct,
+    RevendeurProductDetails,
+    FullRevendeurComponent
 
   ],
   imports: [

@@ -15,6 +15,11 @@ import { ProductComponent } from './pages/responsable/product/product.component'
 import { ProductDetailsComponent } from './pages/responsable/product-details/product-details.component';
 import { OrderComponent } from './pages/responsable/order/order.component';
 import { ProfileComponent } from './pages/responsable/profile/profile.component';
+import { FullRevendeurComponent } from './pages/revendeur/full-revendeur.component';
+import { RevendeurComponent } from './pages/revendeur/revendeur.component';
+
+import { ProductComponent as RevendeurProduct } from './pages/revendeur/product/product.component';
+import { ProductDetailsComponent as RevendeurDetailsProduct } from './pages/revendeur/product-details/product-details.component';
 
 export const AppRoutes: Routes = [
   {
@@ -93,6 +98,35 @@ export const AppRoutes: Routes = [
       },
       {
         path: "profile",
+        component: ProfileComponent
+      },
+    ]
+  },
+
+  // Route for revendeur
+  {
+    path: "",
+    component: FullRevendeurComponent,
+    children: [
+
+      {
+        path: 'revendeur',
+        component: RevendeurComponent,
+      },
+      {
+        path: "rev-product",
+        component: RevendeurProduct
+      },
+      {
+        path: "rev-product-details",
+        component: RevendeurDetailsProduct
+      },/* ,
+      {
+        path: "order",
+        component: OrderComponent
+      }, */
+      {
+        path: "re-profile",
         component: ProfileComponent
       },
     ]
