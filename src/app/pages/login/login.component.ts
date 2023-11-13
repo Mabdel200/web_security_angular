@@ -37,13 +37,13 @@ export class LoginComponent implements OnInit  {
           //Defined routes.
           if (!this.authResponse.mfaEnabled && this.authResponse.role == "MANAGER") {
             localStorage.setItem('token', response.accessToken as string);
-            this.router.navigate(['customer']);
+            this.router.navigate(['responsable-cli']);
           }
 
           //Defined routes.
           if (!this.authResponse.mfaEnabled && this.authResponse.role == "USER") {
             localStorage.setItem('token', response.accessToken as string);
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['revendeur']);
           }
 
         }

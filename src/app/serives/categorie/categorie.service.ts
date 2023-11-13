@@ -9,6 +9,7 @@ export class CategorieService {
 
   private baseUrl = 'http://localhost:8080/api/v1/auth'
 
+
   constructor(
     private http: HttpClient
   ) { }
@@ -18,7 +19,7 @@ export class CategorieService {
   }
 
   getCategories(){
-    return this.http.get(`${this.baseUrl}/findAllCategories`)
+    return this.http.get(`${this.baseUrl}/findAllCategory`)
   }
 
   // getCategoryById( id: string ) {

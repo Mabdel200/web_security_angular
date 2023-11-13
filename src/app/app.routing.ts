@@ -5,8 +5,23 @@ import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {WelcomeComponent} from "./pages/welcome/welcome.component";
 import {authGuard} from "./serives/auth/auth.guard";
+//For customer
 import {FullCustomerComponent} from "./pages/customer/full-customer.component";
 import {CustomerComponent} from "./pages/customer/customer.component";
+//For respo-cli
+import {FullResponsableComponent} from "./pages/responsable/full-responsable.component";
+import {ResponsableComponent} from "./pages/responsable/responsable.component";
+import {ProductComponent} from "./pages/responsable/product/product.component";
+import {ProductDetailsComponent} from "./pages/responsable/product-details/product-details.component";
+import {AddProductComponent} from "./pages/responsable/add-product/add-product.component";
+import {ProfileComponent} from "./pages/responsable/profile/profile.component";
+import {OrderComponent} from "./pages/responsable/order/order.component";
+//For revendeur
+import { FullRevendeurComponent } from './pages/revendeur/full-revendeur.component';
+import { RevendeurComponent } from './pages/revendeur/revendeur.component';
+import { ProductComponent as RevendeurProduct } from './pages/revendeur/product/product.component';
+import { ProductDetailsComponent as RevendeurDetailsProduct } from './pages/revendeur/product-details/product-details.component';
+
 
 export const AppRoutes: Routes = [
   {
@@ -48,6 +63,7 @@ export const AppRoutes: Routes = [
   {
     path: '',
     component: FullCustomerComponent,
+    canActivate: [authGuard],
     children: [
 
       {
@@ -55,5 +71,71 @@ export const AppRoutes: Routes = [
         component: CustomerComponent,
       }
     ]
+  },
+
+  // Route for Responsable clientele
+  {
+    path: "",
+    component: FullResponsableComponent,
+    canActivate: [authGuard],
+    children: [
+
+      {
+        path: 'responsable-cli',
+        component: ResponsableComponent,
+      },
+      {
+        path: "product",
+        component: ProductComponent
+      },
+      {
+        path: "product-details",
+        component: ProductDetailsComponent
+      },
+      {
+        path: "add-product",
+        component: AddProductComponent
+      },
+      {
+        path: "order",
+        component: OrderComponent
+      },
+      {
+        path: "profile",
+        component: ProfileComponent
+      },
+    ]
+  },
+
+
+  // Route for revendeur
+  {
+    path: "",
+    component: FullRevendeurComponent,
+    canActivate: [authGuard],
+    children: [
+
+      {
+        path: 'revendeur',
+        component: RevendeurComponent,
+      },
+      {
+        path: "rev-product",
+        component: RevendeurProduct
+      },
+      {
+        path: "rev-product-details",
+        component: RevendeurDetailsProduct
+      },/* ,
+      {
+        path: "order",
+        component: OrderComponent
+      }, */
+      {
+        path: "re-profile",
+        component: ProfileComponent
+      },
+    ]
   }
+
 ];

@@ -41,6 +41,7 @@ export class StepperComponent implements OnInit {
 
   //Get all users.
   ngOnInit(): void {
+
     this.categorieService.getCategories().subscribe( (datas) =>{
       console.log(datas);
       this.categories =datas;

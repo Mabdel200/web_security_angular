@@ -19,6 +19,6 @@ export class MarqueService {
     return this.http.post(`${this.baseUrl}/addMarque`, marqueRequest);
   }
   getMarques(){
-    return this.http.get(`${this.baseUrl}/findAllMarques`)
+    return this.http.get(`${this.baseUrl}/findAllMarque`)
   }
 }

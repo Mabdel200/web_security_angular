@@ -27,9 +27,23 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { CustomerComponent } from './pages/customer/customer.component';
 import { HeaderCustomerComponent } from './pages/customer/header-customer/header-customer.component';
 import { SidebarCustomerComponent } from './pages/customer/sidebar-customer/sidebar-customer.component';
-import {MatTableModule} from "@angular/material/table";
-import {MatListModule} from "@angular/material/list";
-import {MatButtonModule} from "@angular/material/button";
+//For responsable cli
+import {FullResponsableComponent} from "./pages/responsable/full-responsable.component";
+import {ResponsableComponent} from "./pages/responsable/responsable.component";
+import {ProductComponent} from "./pages/responsable/product/product.component";
+import {ProductDetailsComponent} from "./pages/responsable/product-details/product-details.component";
+import {AddProductComponent} from "./pages/responsable/add-product/add-product.component";
+import {ProfileComponent} from "./pages/responsable/profile/profile.component";
+import {OrderComponent} from "./pages/responsable/order/order.component";
+import {SidebarResponsableComponent} from "./pages/responsable/sidebar-responsable/sidebar-responsable.component";
+import {HeaderResponsableComponent} from "./pages/responsable/header-responsable/header-responsable.component";
+// For revendeur
+import { ProductComponent as RevendeurProduct } from './pages/revendeur/product/product.component';
+import { ProductDetailsComponent as RevendeurProductDetails } from './pages/revendeur/product-details/product-details.component';
+import { FullRevendeurComponent } from './pages/revendeur/full-revendeur.component';
+import {RevendeurComponent} from "./pages/revendeur/revendeur.component";
+import {SidebarRevendeurComponent} from "./pages/revendeur/sidebar-revendeur/sidebar-revendeur.component";
+import {HeaderRevendeurComponent} from "./pages/revendeur/header-revendeur/header-revendeur.component";
 
 
 @NgModule({
@@ -48,6 +62,31 @@ import {MatButtonModule} from "@angular/material/button";
     CustomerComponent,
     HeaderCustomerComponent,
     SidebarCustomerComponent,
+
+
+    // respo cli
+    ResponsableComponent,
+    FullResponsableComponent,
+    HeaderCustomerComponent,
+    SidebarResponsableComponent,
+    HeaderResponsableComponent,
+    SidebarResponsableComponent,
+
+    AddProductComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+    OrderComponent,
+    ProfileComponent,
+
+  //  For revendeur
+    HeaderRevendeurComponent,
+    SidebarRevendeurComponent,
+    RevendeurComponent,
+    RevendeurProduct,
+    RevendeurProductDetails,
+    FullRevendeurComponent
+
+
 
   ],
   imports: [
