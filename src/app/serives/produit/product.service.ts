@@ -1,4 +1,4 @@
-import { Product } from './../../models/product';
+import { ProductRequest } from 'src/app/models/product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -13,7 +13,7 @@ export class ProductService {
 
   }
 
-  addProduct(product: Product){
+  addProduct(product: ProductRequest){
     return this.http.post(`${this.baseUrl}/createProduct`, product);
   }
 
