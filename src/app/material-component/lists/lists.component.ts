@@ -17,13 +17,14 @@ import {ThemePalette} from "@angular/material/core";
 
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-lists',
   standalone: true,
   imports: [DemoMaterialModule, MatTableModule, MatPaginatorModule,
     CommonModule, MatListModule, NgFor, MatIconModule, MatDividerModule,
-    DatePipe, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf
+    DatePipe, MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, NgIf, MatButtonModule
   ],
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.scss'],

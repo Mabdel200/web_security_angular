@@ -34,9 +34,44 @@
             ],
             "styles": [
               "src/assets/styles/style.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+
+              "src/assets/styles1/plugins/vectormap/jquery-jvectormap-2.0.2.css",
+              "src/assets/styles1/plugins/input-tags/css/tagsinput.css",
+              "src/assets/styles1/plugins/simplebar/css/simplebar.css"  ,
+              "src/assets/styles1/plugins/datatable/css/dataTables.bootstrap5.min.css"  ,
+              "src/assets/styles1/plugins/perfect-scrollbar/css/perfect-scrollbar.css"  ,
+              "src/assets/styles1/plugins/metismenu/css/metisMenu.min.css",
+              "src/assets/styles1/css/pace.min.css",
+              "src/assets/styles1/css/bootstrap.min.css" ,
+              "src/assets/styles1/css/app.css" ,
+              "src/assets/styles1/css/icons.css" ,
+              "src/assets/styles1/css/dark-theme.css" ,
+              "src/assets/styles1/css/semi-dark.css" ,
+              "src/assets/styles1/css/header-colors.css"
+
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/styles1/js/bootstrap.bundle.min.js",
+              "src/assets/styles1/js/jquery.min.js",
+              "src/assets/styles1/js/pace.min.js",
+              "src/assets/styles1/plugins/simplebar/js/simplebar.min.js",
+              "src/assets/styles1/plugins/metismenu/js/metisMenu.min.js",
+              "src/assets/styles1/plugins/perfect-scrollbar/js/perfect-scrollbar.js",
+              "src/assets/styles1/plugins/chartjs/js/Chart.min.js",
+              "src/assets/styles1/plugins/vectormap/jquery-jvectormap-2.0.2.min.js",
+              "src/assets/styles1/plugins/vectormap/jquery-jvectormap-world-mill-en.js",
+              "src/assets/styles1/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js",
+              "src/assets/styles1/plugins/sparkline-charts/jquery.sparkline.min.js",
+              "src/assets/styles1/plugins/jquery-knob/excanvas.js",
+              "src/assets/styles1/plugins/jquery-knob/jquery.knob.js",
+              "src/assets/styles1/js/index.js",
+              "src/assets/styles1/js/validate.min.js",
+              "src/assets/styles1/js/app.js",
+              "src/assets/styles1/plugins/datatable/js/jquery.dataTables.min.js",
+              "src/assets/styles1/plugins/input-tags/js/tagsinput.js"
+            ]
           },
           "configurations": {
             "production": {

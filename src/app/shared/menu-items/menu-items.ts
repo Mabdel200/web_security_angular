@@ -12,9 +12,10 @@ const MENUITEMS = [
   // { state: 'button', type: 'link', name: 'Gérer utilisateurs', icon: 'crop_7_5' },
   // { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   { state: 'lists', type: 'link', name: 'Gérer utilisateurs', icon: 'view_list' },
-  { state: 'menu', type: 'link', name: 'Gérer commandes', icon: 'view_headline' },
   { state: 'tabs', type: 'link', name: 'Gérer articles', icon: 'tab' },
   { state: 'stepper', type: 'link', name: 'Gérer categories', icon: 'web' },
+  { state: 'menu', type: 'link', name: 'Gérer commandes', icon: 'view_headline' },
+
   // {
   //   state: 'expansion',
   //   type: 'link',
